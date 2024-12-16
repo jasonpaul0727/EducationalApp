@@ -1,2 +1,17 @@
 # EducationalApp
 Educational Dating App
+
+Project Introduction
+This project, titled Educational Dating App Game, is built using the Qt framework and Box2D physics engine. The application serves as an interactive game that educates users about safe online dating practices through multiple levels and simulated scenarios. The game is structured into various stages, each focusing on a different aspect of dating, such as setting up a profile, matching with potential partners, and engaging in conversations. Key features include dynamic UI elements, physics-based visual effects, and a signal-slot system to manage level transitions and user interactions.
+
+Logic and Purpose of Each File
+main.cpp: Entry point of the program. It initializes the application and the main window.
+mainwindow.cpp: Acts as the central manager for all levels, connecting their signals and slots to handle transitions between levels and game states. It utilizes QStackedWidget to switch between different screens like Level1, Level2, Level3, GameOver, and the congratulation screen.
+Level1.cpp: The user inputs their name and age. If the age is below 18, a warning is displayed, and the game ends using the gameOver signal. If the input is valid, the game proceeds to Level 2. This level demonstrates basic UI input handling and conditional validation.
+Level2.cpp: A matchmaking system is implemented where users interact with dynamically generated profiles categorized into good, mid, and bad matches. Accepting dangerous matches triggers the game over signal, while safe matches proceed to Level 3. std::vector is used to manage and filter matches based on user choices.
+Level3.cpp: Simulates a chat interaction where users answer questions using pre-set options. The program evaluates their responses, assigns scores, and provides feedback based on their choices. The final score determines whether the user succeeds or fails the match. The logic uses indexed tracking (chatIndex) and QTimer to create a sequential chat flow with delays.
+congratulate.cpp: A celebration screen with animated heart effects is created using Box2D physics and QGraphicsScene. Hearts fall with gravity and are removed upon collision with the floor. The QTimer updates the physics engine and dynamically generates new hearts. A "Close" button allows the user to exit the application.
+GameOver.cpp and Intro.cpp: Manage the introduction screen and the game-over screen with basic instructions and reset options.
+Match.cpp and Profile.cpp: Handle data structures for matchmaking profiles and user data management.
+My Contribution
+In this project, I combined user interface design and physics-based animation to deliver a seamless and interactive user experience. For Level1, I implemented user input validation with real-time checks. In Level2, I used data structures like std::vector to dynamically generate and manage matchmaking profiles. For Level3, I designed a state-driven chat system that evaluates user answers and generates personalized feedback. The most challenging yet rewarding part was congratulate.cpp, where I implemented falling heart animations using Box2D physics and managed object creation, collision detection, and deletion efficiently. I also integrated QTimer for smooth updates and utilized signal-slot connections throughout the project to synchronize transitions between levels. This project reflects my dedication to creating a polished, educational, and visually engaging application using advanced programming techniques.
